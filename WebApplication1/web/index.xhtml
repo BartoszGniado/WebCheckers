@@ -1,12 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
+        
     </h:head>
     <h:body>
-        Hello from Facelets
+   
+        <h:form>
+            <table cellpadding="0" cellspacing="0 0" align="center" border="5">
+                <ui:repeat value="#{bean.col}" var="x">
+                    <tr >
+                    
+                    <ui:repeat value="#{bean.row}" var="y">
+                        <td >
+                            <h:commandButton action="#{bean.doTheThing(x, y)}" image="#{bean.picsArr[x][y]}" />
+                        </td>
+                    </ui:repeat>
+                
+                        </tr>
+                </ui:repeat>
+            </table>
+        </h:form>
     </h:body>
 </html>
 
